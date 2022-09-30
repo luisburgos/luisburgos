@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'landing_label.dart';
+import 'landing_project.dart';
 
 class LandingViewData {
   LandingViewData({
@@ -7,60 +9,72 @@ class LandingViewData {
     required this.name,
     required this.role,
     required this.githubUrl,
+    this.projects = const <LandingProjectViewData>[],
   });
 
   final String imageUrl;
   final String name;
   final String role;
   final String githubUrl;
+  final List<LandingProjectViewData> projects;
 }
 
 class LandingView extends StatelessWidget {
   const LandingView({
     Key? key,
     required this.data,
+    this.footer,
   }) : super(key: key);
 
   final LandingViewData data;
+  final Widget? footer;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       color: Colors.black87,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 400,
-        ),
-        child: Column(
-          children: [
-            LandingLabel(data.imageUrl),
-            LandingLabel(data.name),
-            LandingLabel(data.githubUrl),
-          ],
-        ),
+      child: Column(
+        children: [
+          Expanded(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 400,
+              ),
+              child: Column(
+                children: [
+                  LandingLabel(data.imageUrl),
+                  LandingLabel(data.name),
+                  LandingLabel(data.githubUrl),
+                  LandingProjectsView(projects: data.projects),
+                ],
+              ),
+            ),
+          ),
+          if (footer != null) footer!,
+        ],
       ),
     );
   }
 }
 
-class LandingLabel extends StatelessWidget {
-  const LandingLabel(
-    this.text, {
+class LandingProjectsView extends StatelessWidget {
+  const LandingProjectsView({
     Key? key,
-    this.color = Colors.white,
+    this.projects = const <LandingProjectViewData>[],
   }) : super(key: key);
 
-  final String text;
-  final Color color;
+  final List<LandingProjectViewData> projects;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: GoogleFonts.getFont('Lato').copyWith(
-        color: color,
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: projects.length,
+      itemBuilder: (context, index) {
+        final data = projects[index];
+        return LandingProjectViewItem(data: data);
+      },
     );
   }
 }
