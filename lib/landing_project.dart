@@ -16,19 +16,22 @@ class LandingProjectViewItem extends StatelessWidget {
   const LandingProjectViewItem({
     Key? key,
     required this.data,
+    required this.onGithubUrlTap,
   }) : super(key: key);
 
+  final Function(String) onGithubUrlTap;
   final LandingProjectViewData data;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: LandingLabel(data.name),
-      trailing: ElevatedButton(
-        child: Text(data.githubUrl),
-        onPressed: () {
-          //TODO: Implement
-        },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: LandingLabel(data.name),
+        trailing: ElevatedButton(
+          onPressed: () => onGithubUrlTap(data.githubUrl),
+          child: Text(data.githubUrl),
+        ),
       ),
     );
   }

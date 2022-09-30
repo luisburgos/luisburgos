@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'landing_label.dart';
 import 'landing_project.dart';
@@ -46,7 +47,16 @@ class LandingView extends StatelessWidget {
                   LandingLabel(data.imageUrl),
                   LandingLabel(data.name),
                   LandingLabel(data.githubUrl),
-                  LandingProjectsView(projects: data.projects),
+                  LandingProjectsView(
+                    projects: data.projects,
+                    onGithubUrlTap: (url) async {
+                      //TODO: Refactor to move logic out af the view.
+                      final uri = Uri.parse(url);
+                      if (!await launchUrl(uri)) {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
@@ -62,9 +72,11 @@ class LandingProjectsView extends StatelessWidget {
   const LandingProjectsView({
     Key? key,
     this.projects = const <LandingProjectViewData>[],
+    required this.onGithubUrlTap,
   }) : super(key: key);
 
   final List<LandingProjectViewData> projects;
+  final Function(String) onGithubUrlTap;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +85,10 @@ class LandingProjectsView extends StatelessWidget {
       itemCount: projects.length,
       itemBuilder: (context, index) {
         final data = projects[index];
-        return LandingProjectViewItem(data: data);
+        return LandingProjectViewItem(
+          data: data,
+          onGithubUrlTap: onGithubUrlTap,
+        );
       },
     );
   }

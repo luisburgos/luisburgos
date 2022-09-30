@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
             githubUrl: 'https://github.com/luisburgos',
             projects: [
               LandingProjectViewData(
+                name: 'Buzz',
+                githubUrl: 'https://github.com/luisburgos/buzz',
+              ),
+              LandingProjectViewData(
                 name: 'Neto',
                 githubUrl: 'https://github.com/luisburgos/neto',
               ),
