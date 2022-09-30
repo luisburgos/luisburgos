@@ -46,6 +46,7 @@ class LandingView extends StatelessWidget {
                 children: [
                   LandingLabel(data.imageUrl),
                   LandingLabel(data.name),
+                  LandingLabel(data.role),
                   LandingLabel(data.githubUrl),
                   LandingProjectsView(
                     projects: data.projects,

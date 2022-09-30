@@ -1,15 +1,22 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:luisburgos/landing.dart';
 
 void main() {
   testWidgets('LandingViewData full', (tester) async {
     await tester.pumpWidget(
-      LandingView(
-        data: LandingViewData(
-          imageUrl: 'FOTO',
-          name: 'Luis Burgos',
-          role: 'Staff Mobile Engineer @kueski',
-          githubUrl: 'https://github.com/luisburgos',
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: MediaQuery(
+          data: const MediaQueryData(),
+          child: LandingView(
+            data: LandingViewData(
+              imageUrl: 'FOTO',
+              name: 'Luis Burgos',
+              role: 'Staff Mobile Engineer @kueski',
+              githubUrl: 'https://github.com/luisburgos',
+            ),
+          ),
         ),
       ),
     );
