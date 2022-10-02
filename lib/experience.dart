@@ -1,10 +1,108 @@
 import 'package:flutter/material.dart';
 
+import 'landing_label.dart';
+
 class ExperienceView extends StatelessWidget {
   const ExperienceView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ExperienceListView(
+      items: [
+        ExperienceViewData(
+          title: 'Software Engineer (Consultant)',
+          companyName: '@firstroot',
+          employmentType: 'Full-time',
+          startDate: 'Jul 2021',
+          endDate: 'Nov 2021',
+        ),
+      ],
+      onItemTap: (_) {
+        debugPrint('TODO: Implement');
+      },
+    );
+  }
+}
+
+class ExperienceViewData {
+  ExperienceViewData({
+    required this.title,
+    required this.companyName,
+    required this.employmentType,
+    required this.startDate,
+    required this.endDate,
+    this.technologiesUsed = const [],
+  });
+
+  final String title;
+  final String companyName;
+  final String employmentType;
+  final String startDate;
+  final String endDate;
+  final List<String> technologiesUsed;
+}
+
+class ExperienceListView extends StatelessWidget {
+  const ExperienceListView({
+    Key? key,
+    this.items = const <ExperienceViewData>[],
+    required this.onItemTap,
+  }) : super(key: key);
+
+  final List<ExperienceViewData> items;
+  final Function(ExperienceViewData) onItemTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        final data = items[index];
+        return ExperienceViewItem(
+          data: data,
+          onItemTap: onItemTap,
+        );
+      },
+    );
+  }
+}
+
+class ExperienceViewItem extends StatelessWidget {
+  const ExperienceViewItem({
+    Key? key,
+    required this.data,
+    required this.onItemTap,
+  }) : super(key: key);
+
+  final Function(ExperienceViewData) onItemTap;
+  final ExperienceViewData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: LandingLabel(data.title),
+        subtitle: Column(
+          children: [
+            Row(
+              children: [
+                LandingLabel(data.companyName),
+                const LandingLabel(' – '),
+                LandingLabel(data.employmentType),
+              ],
+            ),
+            Row(
+              children: [
+                LandingLabel(data.startDate),
+                const LandingLabel(' – '),
+                LandingLabel(data.endDate)
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
