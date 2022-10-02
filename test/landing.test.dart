@@ -13,7 +13,8 @@ void main() {
             data: LandingViewData(
               imageUrl: 'FOTO',
               name: 'Luis Burgos',
-              role: 'Staff Mobile Engineer @kueski',
+              description:
+                  'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.',
               githubUrl: 'https://github.com/luisburgos',
             ),
           ),
@@ -22,7 +23,8 @@ void main() {
     );
     final imageUrlFinder = find.text('FOTO');
     final nameFinder = find.text('Luis Burgos');
-    final roleFinder = find.text('Staff Mobile Engineer @kueski');
+    final roleFinder = find.text(
+        'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.');
     final githubUrlFinder = find.text('https://github.com/luisburgos');
 
     expect(imageUrlFinder, findsOneWidget);

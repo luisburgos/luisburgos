@@ -8,14 +8,17 @@ class LandingViewData {
   LandingViewData({
     required this.imageUrl,
     required this.name,
-    required this.role,
+    required this.description,
+    this.role,
     required this.githubUrl,
     this.projects = const <LandingProjectViewData>[],
   });
 
   final String imageUrl;
   final String name;
-  final String role;
+  final String description;
+  @Deprecated('Use [description] instead')
+  final String? role;
   final String githubUrl;
   final List<LandingProjectViewData> projects;
 }
@@ -46,7 +49,7 @@ class LandingView extends StatelessWidget {
                 children: [
                   LandingLabel(data.imageUrl),
                   LandingLabel(data.name),
-                  LandingLabel(data.role),
+                  LandingLabel(data.description),
                   LandingLabel(data.githubUrl),
                   LandingProjectsView(
                     projects: data.projects,

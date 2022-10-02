@@ -22,7 +22,8 @@ class WebsiteApp extends StatelessWidget {
           data: LandingViewData(
             imageUrl: 'FOTO',
             name: 'Luis Burgos',
-            role: 'Staff Mobile Engineer @kueski',
+            description:
+                'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.',
             githubUrl: 'https://github.com/luisburgos',
             projects: [
               LandingProjectViewData(
