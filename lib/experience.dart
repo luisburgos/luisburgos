@@ -10,10 +10,24 @@ class ExperienceView extends StatelessWidget {
     return ExperienceListView(
       items: [
         ExperienceViewData(
+          title: 'Staff Software Engineer (Mobile)',
+          companyName: '@kueski',
+          employmentType: 'Full-time',
+          startDate: 'Feb 2022',
+          endDate: 'Today',
+        ),
+        ExperienceViewData(
           title: 'Software Engineer (Consultant)',
           companyName: '@firstroot',
           employmentType: 'Full-time',
           startDate: 'Jul 2021',
+          endDate: 'Nov 2021',
+        ),
+        ExperienceViewData(
+          title: 'Software Engineer',
+          companyName: '@yellowme',
+          employmentType: 'Full-time',
+          startDate: 'Mar 2017',
           endDate: 'Nov 2021',
         ),
       ],
