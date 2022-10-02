@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'footer.dart';
+import 'copyright_footer.dart';
 import 'landing.dart';
 import 'landing_project.dart';
 
