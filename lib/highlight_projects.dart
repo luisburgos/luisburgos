@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'landing.dart';
-import 'landing_project.dart';
+import 'landing_label.dart';
 
-class HighlightProjects extends StatelessWidget {
-  const HighlightProjects({Key? key}) : super(key: key);
+class ProjectViewData {
+  ProjectViewData({
+    required this.name,
+    required this.githubUrl,
+  });
+
+  final String name;
+  final String githubUrl;
+}
+
+class HighlightProjectsView extends StatelessWidget {
+  const HighlightProjectsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return LandingProjectsView(
+    return ProjectsListView(
       projects: [
-        LandingProjectViewData(
+        ProjectViewData(
           name: 'Buzz',
           githubUrl: 'https://github.com/luisburgos/buzz',
         ),
-        LandingProjectViewData(
+        ProjectViewData(
           name: 'Neto',
           githubUrl: 'https://github.com/luisburgos/neto',
         ),
@@ -27,6 +36,57 @@ class HighlightProjects extends StatelessWidget {
           throw 'Could not launch $url';
         }
       },
+    );
+  }
+}
+
+class ProjectsListView extends StatelessWidget {
+  const ProjectsListView({
+    Key? key,
+    this.projects = const <ProjectViewData>[],
+    required this.onGithubUrlTap,
+  }) : super(key: key);
+
+  final List<ProjectViewData> projects;
+  final Function(String) onGithubUrlTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: projects.length,
+      itemBuilder: (context, index) {
+        final data = projects[index];
+        return ProjectViewItem(
+          data: data,
+          onGithubUrlTap: onGithubUrlTap,
+        );
+      },
+    );
+  }
+}
+
+class ProjectViewItem extends StatelessWidget {
+  const ProjectViewItem({
+    Key? key,
+    required this.data,
+    required this.onGithubUrlTap,
+  }) : super(key: key);
+
+  final Function(String) onGithubUrlTap;
+  final ProjectViewData data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: LandingLabel(data.name),
+        trailing: ElevatedButton(
+          onPressed: () => onGithubUrlTap(data.githubUrl),
+          child: Text(data.githubUrl),
+        ),
+      ),
     );
   }
 }

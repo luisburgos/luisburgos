@@ -29,7 +29,7 @@ class WebsiteApp extends StatelessWidget {
           ),
           footer: const CopyrightFooterView(),
           experienceView: const ExperienceView(),
-          highlightProjectsView: const HighlightProjects(),
+          highlightProjectsView: const HighlightProjectsView(),
         ),
       ),
     );

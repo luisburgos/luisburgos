@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'highlight_projects.dart';
 import 'landing_label.dart';
-import 'landing_project.dart';
 
 class LandingViewData {
   LandingViewData({
@@ -10,7 +10,7 @@ class LandingViewData {
     required this.description,
     this.role,
     required this.githubUrl,
-    this.projects = const <LandingProjectViewData>[],
+    this.projects = const <ProjectViewData>[],
   });
 
   final String imageUrl;
@@ -22,7 +22,7 @@ class LandingViewData {
   final String? role;
 
   @Deprecated('Use [HighlightProjects] widget instead')
-  final List<LandingProjectViewData> projects;
+  final List<ProjectViewData> projects;
 }
 
 class LandingView extends StatelessWidget {
@@ -70,32 +70,6 @@ class LandingView extends StatelessWidget {
           if (footer != null) footer!,
         ],
       ),
-    );
-  }
-}
-
-class LandingProjectsView extends StatelessWidget {
-  const LandingProjectsView({
-    Key? key,
-    this.projects = const <LandingProjectViewData>[],
-    required this.onGithubUrlTap,
-  }) : super(key: key);
-
-  final List<LandingProjectViewData> projects;
-  final Function(String) onGithubUrlTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: projects.length,
-      itemBuilder: (context, index) {
-        final data = projects[index];
-        return LandingProjectViewItem(
-          data: data,
-          onGithubUrlTap: onGithubUrlTap,
-        );
-      },
     );
   }
 }
