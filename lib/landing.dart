@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'landing_label.dart';
 import 'landing_project.dart';
@@ -17,9 +16,12 @@ class LandingViewData {
   final String imageUrl;
   final String name;
   final String description;
+  final String githubUrl;
+
   @Deprecated('Use [description] instead')
   final String? role;
-  final String githubUrl;
+
+  @Deprecated('Use [HighlightProjects] widget instead')
   final List<LandingProjectViewData> projects;
 }
 
@@ -28,10 +30,14 @@ class LandingView extends StatelessWidget {
     Key? key,
     required this.data,
     this.footer,
+    required this.highlightProjectsView,
+    required this.experienceView,
   }) : super(key: key);
 
   final LandingViewData data;
   final Widget? footer;
+  final Widget experienceView;
+  final Widget highlightProjectsView;
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +57,12 @@ class LandingView extends StatelessWidget {
                   LandingLabel(data.name),
                   LandingLabel(data.description),
                   LandingLabel(data.githubUrl),
-                  LandingProjectsView(
-                    projects: data.projects,
-                    onGithubUrlTap: (url) async {
-                      //TODO: Refactor to move logic out af the view.
-                      final uri = Uri.parse(url);
-                      if (!await launchUrl(uri)) {
-                        throw 'Could not launch $url';
-                      }
-                    },
+                  highlightProjectsView,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 4),
+                    child: Divider(height: 1),
                   ),
+                  experienceView,
                 ],
               ),
             ),

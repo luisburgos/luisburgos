@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:luisburgos/highlight_projects.dart';
 
 import 'copyright_footer.dart';
+import 'experience.dart';
 import 'landing.dart';
-import 'landing_project.dart';
 
 void main() {
   runApp(const WebsiteApp());
@@ -25,18 +26,10 @@ class WebsiteApp extends StatelessWidget {
             description:
                 'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.',
             githubUrl: 'https://github.com/luisburgos',
-            projects: [
-              LandingProjectViewData(
-                name: 'Buzz',
-                githubUrl: 'https://github.com/luisburgos/buzz',
-              ),
-              LandingProjectViewData(
-                name: 'Neto',
-                githubUrl: 'https://github.com/luisburgos/neto',
-              ),
-            ],
           ),
           footer: const CopyrightFooterView(),
+          experienceView: const ExperienceView(),
+          highlightProjectsView: const HighlightProjects(),
         ),
       ),
     );

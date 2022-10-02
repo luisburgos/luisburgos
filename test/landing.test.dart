@@ -17,6 +17,8 @@ void main() {
                   'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.',
               githubUrl: 'https://github.com/luisburgos',
             ),
+            experienceView: Container(),
+            highlightProjectsView: Container(),
           ),
         ),
       ),
