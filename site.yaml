@@ -1,0 +1,20 @@
+image_url: "FOTO"
+name: "Luis Arturo Burgos Varguez"
+description: "Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México."
+github_url: "https://github.com/luisburgos"
+experiences:
+  - title: 'Staff Software Engineer (Mobile)'
+    company_name: '@kueski'
+    employment_type: 'Full-time'
+    start_date: 'Feb 2022'
+    end_date: 'Today'
+  - title: 'Software Engineer (Consultant)'
+    company_name: '@firstroot'
+    employment_type: 'Full-time'
+    start_date: 'Jul 2020'
+    end_date: 'Nov 2021'
+  - title: 'Software Engineer'
+    company_name: '@yellowme'
+    employment_type: 'Full-time'
+    start_date: 'Mar 2017'
+    end_date: 'Nov 2021'

@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:luisburgos/highlight_projects.dart';
+import 'package:luisburgos/yaml/reader.dart';
 
 import 'copyright_footer.dart';
 import 'experience.dart';
 import 'landing.dart';
 
-void main() {
-  runApp(const WebsiteApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final siteModel = await YamlReader(
+    fileName: 'site.yaml',
+    parser: SiteYamlParser(),
+  ).read();
+
+  runApp(WebsiteApp(siteModel));
 }
 
 class WebsiteApp extends StatelessWidget {
-  const WebsiteApp({Key? key}) : super(key: key);
+  const WebsiteApp(
+    this.siteModel, {
+    Key? key,
+  }) : super(key: key);
+
+  final SiteModel siteModel;
 
   // This widget is the root of your application.
   @override
@@ -21,14 +34,13 @@ class WebsiteApp extends StatelessWidget {
       home: Scaffold(
         body: LandingView(
           data: LandingViewData(
-            imageUrl: 'FOTO',
-            name: 'Luis Burgos',
-            description:
-                'Staff Mobile Engineer @kueski currently living in 🇲🇽 CDMX, México.',
-            githubUrl: 'https://github.com/luisburgos',
+            imageUrl: siteModel.imageUrl,
+            name: siteModel.name,
+            description: siteModel.description,
+            githubUrl: siteModel.githubUrl,
           ),
           footer: const CopyrightFooterView(),
-          experienceView: const ExperienceView(),
+          experienceView: ExperienceView(siteModel.experiences),
           highlightProjectsView: const HighlightProjectsView(),
         ),
       ),

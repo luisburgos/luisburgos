@@ -3,34 +3,17 @@ import 'package:flutter/material.dart';
 import 'landing_label.dart';
 
 class ExperienceView extends StatelessWidget {
-  const ExperienceView({Key? key}) : super(key: key);
+  const ExperienceView(
+    this.experiences, {
+    Key? key,
+  }) : super(key: key);
+
+  final List<ExperienceViewData> experiences;
 
   @override
   Widget build(BuildContext context) {
     return ExperienceListView(
-      items: [
-        ExperienceViewData(
-          title: 'Staff Software Engineer (Mobile)',
-          companyName: '@kueski',
-          employmentType: 'Full-time',
-          startDate: 'Feb 2022',
-          endDate: 'Today',
-        ),
-        ExperienceViewData(
-          title: 'Software Engineer (Consultant)',
-          companyName: '@firstroot',
-          employmentType: 'Full-time',
-          startDate: 'Jul 2021',
-          endDate: 'Nov 2021',
-        ),
-        ExperienceViewData(
-          title: 'Software Engineer',
-          companyName: '@yellowme',
-          employmentType: 'Full-time',
-          startDate: 'Mar 2017',
-          endDate: 'Nov 2021',
-        ),
-      ],
+      items: experiences,
       onItemTap: (_) {
         debugPrint('TODO: Implement');
       },
@@ -54,6 +37,16 @@ class ExperienceViewData {
   final String startDate;
   final String endDate;
   final List<String> technologiesUsed;
+
+  static ExperienceViewData fromJson(Map json) {
+    return ExperienceViewData(
+      title: json['title'],
+      companyName: json['company_name'],
+      endDate: json['end_date'],
+      startDate: json['start_date'],
+      employmentType: json['employment_type'],
+    );
+  }
 }
 
 class ExperienceListView extends StatelessWidget {
