@@ -83,7 +83,10 @@ class LandingDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(vertical: 4),
-      child: Divider(height: 2),
+      child: Divider(
+        height: 2,
+        color: Colors.grey,
+      ),
     );
   }
 }

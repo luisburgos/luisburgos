@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:luisburgos/blog/markdown_to_blog.dart';
-import 'package:luisburgos/blog/reader.dart';
 
 import 'blog/view.dart';
 import 'copyright_footer.dart';
@@ -18,23 +16,16 @@ void main() async {
     parser: SiteYamlParser(),
   ).read();
 
-  final blogModel = await MarkdownReader(
-    fileName: 'assets/blog/hello_world.md',
-    parser: MarkdownBlogParser(),
-  ).read();
-
-  runApp(WebsiteApp(siteModel, blogModel));
+  runApp(WebsiteApp(siteModel));
 }
 
 class WebsiteApp extends StatelessWidget {
   const WebsiteApp(
-    this.siteModel,
-    this.blogModel, {
+    this.siteModel, {
     Key? key,
   }) : super(key: key);
 
   final SiteModel siteModel;
-  final BlogModel blogModel;
 
   // This widget is the root of your application.
   @override
@@ -53,7 +44,7 @@ class WebsiteApp extends StatelessWidget {
           highlightProjectsView: HighlightProjectsView(siteModel.projects),
           experienceView: ExperienceView(siteModel.experiences),
           footer: const CopyrightFooterView(),
-          blog: BlogView(blogModel),
+          blog: const BlogView(),
         ),
       ),
     );
