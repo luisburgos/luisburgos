@@ -32,12 +32,15 @@ class LandingView extends StatelessWidget {
     this.footer,
     required this.highlightProjectsView,
     required this.experienceView,
+    required this.blog,
   }) : super(key: key);
 
   final LandingViewData data;
   final Widget? footer;
   final Widget experienceView;
   final Widget highlightProjectsView;
+  //Experimental
+  final Widget blog;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +61,10 @@ class LandingView extends StatelessWidget {
                   LandingLabel(data.description),
                   LandingLabel(data.githubUrl),
                   highlightProjectsView,
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    child: Divider(height: 1),
-                  ),
+                  const LandingDivider(),
                   experienceView,
+                  const LandingDivider(),
+                  blog
                 ],
               ),
             ),
@@ -70,6 +72,18 @@ class LandingView extends StatelessWidget {
           if (footer != null) footer!,
         ],
       ),
+    );
+  }
+}
+
+class LandingDivider extends StatelessWidget {
+  const LandingDivider({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 4),
+      child: Divider(height: 2),
     );
   }
 }

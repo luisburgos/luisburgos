@@ -19,6 +19,7 @@ void main() {
             ),
             experienceView: Container(),
             highlightProjectsView: Container(),
+            blog: Container(),
           ),
         ),
       ),
