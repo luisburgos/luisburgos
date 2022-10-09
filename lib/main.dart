@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:luisburgos/highlight_projects.dart';
 import 'package:luisburgos/yaml/reader.dart';
 
 import 'copyright_footer.dart';
 import 'experience.dart';
+import 'highlight_projects.dart';
 import 'landing.dart';
 
 void main() async {
@@ -39,9 +39,9 @@ class WebsiteApp extends StatelessWidget {
             description: siteModel.description,
             githubUrl: siteModel.githubUrl,
           ),
-          footer: const CopyrightFooterView(),
+          highlightProjectsView: HighlightProjectsView(siteModel.projects),
           experienceView: ExperienceView(siteModel.experiences),
-          highlightProjectsView: const HighlightProjectsView(),
+          footer: const CopyrightFooterView(),
         ),
       ),
     );

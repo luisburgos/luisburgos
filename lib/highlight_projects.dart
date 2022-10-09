@@ -11,24 +11,27 @@ class ProjectViewData {
 
   final String name;
   final String githubUrl;
+
+  static ProjectViewData fromJson(Map json) {
+    return ProjectViewData(
+      name: json['name'],
+      githubUrl: json['github_url'],
+    );
+  }
 }
 
 class HighlightProjectsView extends StatelessWidget {
-  const HighlightProjectsView({Key? key}) : super(key: key);
+  const HighlightProjectsView(
+    this.projects, {
+    Key? key,
+  }) : super(key: key);
+
+  final List<ProjectViewData> projects;
 
   @override
   Widget build(BuildContext context) {
     return ProjectsListView(
-      projects: [
-        ProjectViewData(
-          name: 'Buzz',
-          githubUrl: 'https://github.com/luisburgos/buzz',
-        ),
-        ProjectViewData(
-          name: 'Neto',
-          githubUrl: 'https://github.com/luisburgos/neto',
-        ),
-      ],
+      projects: projects,
       onGithubUrlTap: (url) async {
         //TODO: Refactor to move logic out af the view.
         final uri = Uri.parse(url);

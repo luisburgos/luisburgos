@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import "package:flutter/services.dart";
 import 'package:luisburgos/experience.dart';
+import 'package:luisburgos/highlight_projects.dart';
 import 'package:yaml/yaml.dart';
 
 class SiteModel {
@@ -9,6 +10,7 @@ class SiteModel {
   String name;
   String description;
   String githubUrl;
+  List<ProjectViewData> projects;
   List<ExperienceViewData> experiences;
 
   SiteModel.fromJson(Map json)
@@ -16,6 +18,9 @@ class SiteModel {
         imageUrl = json['image_url'],
         description = json['description'],
         githubUrl = json['github_url'],
+        projects = (json['projects'] as List)
+            .map((e) => ProjectViewData.fromJson(e))
+            .toList(),
         experiences = (json['experiences'] as List)
             .map((e) => ExperienceViewData.fromJson(e))
             .toList();
