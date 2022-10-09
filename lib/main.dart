@@ -23,9 +23,11 @@ class WebsiteApp extends StatelessWidget {
   const WebsiteApp(
     this.siteModel, {
     Key? key,
+    this.withBlog = false,
   }) : super(key: key);
 
   final SiteModel siteModel;
+  final bool withBlog;
 
   // This widget is the root of your application.
   @override
@@ -44,7 +46,8 @@ class WebsiteApp extends StatelessWidget {
           highlightProjectsView: HighlightProjectsView(siteModel.projects),
           experienceView: ExperienceView(siteModel.experiences),
           footer: const CopyrightFooterView(),
-          blog: const BlogView(),
+          //FIXME: Improve flags and views design
+          blog: withBlog ? const BlogView() : Container(),
         ),
       ),
     );
