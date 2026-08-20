@@ -7,9 +7,10 @@ tech lead along the way. These days I build and ship my own things, and take on
 the occasional freelance project.
 
 - 📱 Mostly **Flutter** now, after years of native Android and iOS
-- 🛠️ I care about **design systems** and **release pipelines** as much as the app
-- 🏐 [Volleyboard](https://volleyboard.app) runs every match we go to
-- 💬 Ping me about **flutter**, **mobile architecture**, **shipping**, **design systems**
+- 🏐 [Volleyboard](https://volleyboard.app) — a volleyball scoreboard app that runs every match we go to
+- 🎨 [Flowin](https://luisburgos.github.io/flutter_flowin/) — the Flutter design system behind it
+- 🧰 [skills](https://github.com/luisburgos/skills) — all my Claude Code skills in one repo
+- 💬 Ping me about **flutter**, **mobile architecture**, **design systems**, **release pipelines**
 
 🌐 [luisburgos.xyz](https://luisburgos.xyz) · 🐦 [X](https://x.com/luisburgosxyz) · ✍️ [Substack](https://luisburgos.substack.com/) · 💼 [LinkedIn](https://www.linkedin.com/in/luisburgosv) · 📫 hola@luisburgos.xyz
 
@@ -24,8 +25,9 @@ veces en el camino. Hoy construyo y publico mis propias cosas, y de vez en
 cuando tomo algún proyecto freelance.
 
 - 📱 Sobre todo **Flutter** ahora, después de años de Android y iOS nativo
-- 🛠️ Me importan los **design systems** y los **pipelines de release** tanto como la app
-- 🏐 [Volleyboard](https://volleyboard.app) corre en cada partido al que vamos
-- 💬 Escríbeme sobre **flutter**, **arquitectura móvil**, **releases**, **design systems**
+- 🏐 [Volleyboard](https://volleyboard.app) — un marcador de voleibol que corre en cada partido al que vamos
+- 🎨 [Flowin](https://luisburgos.github.io/flutter_flowin/) — el design system en Flutter detrás de él
+- 🧰 [skills](https://github.com/luisburgos/skills) — todas mis skills de Claude Code en un repo
+- 💬 Escríbeme sobre **flutter**, **arquitectura móvil**, **design systems**, **releases**
 
 🌐 [luisburgos.xyz](https://luisburgos.xyz) · 🐦 [X](https://x.com/luisburgosxyz) · ✍️ [Substack](https://luisburgos.substack.com/) · 💼 [LinkedIn](https://www.linkedin.com/in/luisburgosv) · 📫 hola@luisburgos.xyz
