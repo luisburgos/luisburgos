@@ -14,6 +14,4 @@ take on the occasional freelance project.
 
 🌐 [luisburgos.xyz](https://luisburgos.xyz) · 🐦 [X](https://x.com/luisburgosxyz) · ✍️ [Substack](https://luisburgos.substack.com/) · 💼 [LinkedIn](https://www.linkedin.com/in/luisburgosv) · 📫 hola@luisburgos.xyz
 
----
-
-<div align="center"><sub>English · <a href="README.es.md">Español</a></sub></div>
+English · [Español](README.es.md)
