@@ -28,6 +28,6 @@ cuando tomo algún proyecto freelance.
 - 🏐 [Volleyboard](https://volleyboard.app) — un marcador de voleibol que corre en cada partido al que vamos
 - 🎨 [Flowin](https://luisburgos.github.io/flutter_flowin/) — el design system en Flutter detrás de él
 - 🧰 [skills](https://github.com/luisburgos/skills) — todas mis skills de Claude Code en un repo
-- 💬 Escríbeme sobre **flutter**, **arquitectura móvil**, **design systems**, **releases**
+- 💬 Escríbeme sobre **flutter**, **mobile architecture**, **design systems**, **release pipelines**
 
 🌐 [luisburgos.xyz](https://luisburgos.xyz) · 🐦 [X](https://x.com/luisburgosxyz) · ✍️ [Substack](https://luisburgos.substack.com/) · 💼 [LinkedIn](https://www.linkedin.com/in/luisburgosv) · 📫 hola@luisburgos.xyz
